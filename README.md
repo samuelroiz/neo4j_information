@@ -1,2 +1,1 @@
-# neo4j_code_golf_challenge
-neo4j golf challenge 
+[Code Golf Challenge](https://neo4j-code-golf-2022.devpost.com)
