@@ -5,8 +5,8 @@
 <html>
   <ol>
     <li>To print out all node labels...</li>
-    <ol>
+    <ul>
       <li>MATCH (n) RETURN distinct labels(n)</li>
-    </ol>
+    </ul>
   </ol>
 </html>
