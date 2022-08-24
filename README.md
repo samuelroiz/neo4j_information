@@ -97,6 +97,29 @@
       <br> MERGE (d) -[:YEAR {date:disney.release_year}]-> (l) <- [:YEAR {date:disney.release_year} ]- (c)
       <br> MERGE (l) -[:ID {ID:disney.show_id}]-> (s)
       <br> MERGE (l) -[:INFO ]- (t) -[:INFO ]- (e) -[:INFO ]- (r) -[:INFO ]- (a) -[:INFO]- (i) -[:INFO]- (p) -[:LOCATION]- (u)
+      <br>
+      <br>
+      <br>
+      <br> LOAD CSV WITH HEADERS FROM 'file:///disney_plus_titles.csv' AS disney with disney where disney.director is not null AND disney.cast is not null AND disney.country is not null
+      <br> MERGE (s:ID {ID:disney.show_id})
+      <br> MERGE (t:TYPE {Type:disney.type})
+      <br> MERGE (l:TITLE {Title:disney.title})
+      <br> MERGE (d:CREDITS {Director:disney.director})
+      <br> MERGE (c:CREDITS {Cast:disney.cast})
+      <br> MERGE (u:LOCATION {Country:disney.country})
+      <br> MERGE (e:RELEASE {Year:disney.release_year})
+      <br> MERGE (r:RATING {Rating:disney.rating})
+      <br> MERGE (a:DURATION {Length:disney.duration})
+      <br> MERGE (i:GENRE {Genre:disney.listed_in})
+      <br> MERGE (p:INFO {Summary:disney.description})
+      <br> MERGE (d) -[:year {date:disney.release_year}]-> (l) <- [:year {date:disney.release_year} ]- (c)
+      <br> MERGE (l) -[:id {ID:disney.show_id}]-> (s)
+      <br> MERGE (t) -[:type {TYPE:disney.type}]-> (s)
+      <br> MERGE (l) -[:title ]-> (i)
+      <br> MERGE (u) -[:location ]-> (i) 
+      <br> MERGE (r) -[:rating ]-> (p) 
+      <br> MERGE (a) -[:length ]-> (p) 
+      <br> MERGE (p) -[:summary]-> (l) 
 
 
     </p>
