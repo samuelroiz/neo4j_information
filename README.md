@@ -25,6 +25,13 @@
        <br> MERGE (n:MyNode {Name:line.Client})
        <br> MERGE (m:MyNode {Name:line.Year_joined})
        <br> MERGE (n) -[:TO {dist:line.Description}]-> (m)
+       <br>
+       <br> LOAD CSV WITH HEADERS FROM 'file:///test.csv' AS line
+       <br> MERGE (n:MyNode {Name:line.Client})
+       <br> MERGE (m:MyNode {Name:line.Year_joined})
+       <br> MERGE (d:MyNode {Name:line.Description})
+       <br> MERGE (n) -[:TO {dist:line.Description}]-> (m)
+       <br> MERGE (d) -[:TO {dist:line.Year_joined}]-> (n)
     </p>
   </details>
   <details>
