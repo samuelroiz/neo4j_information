@@ -32,6 +32,27 @@
        <br> MERGE (d:MyNode {Name:line.Description})
        <br> MERGE (n) -[:TO {dist:line.Description}]-> (m)
        <br> MERGE (d) -[:TO {dist:line.Year_joined}]-> (n)
+       <br> LOAD CSV WITH HEADERS FROM 'file:///disney_plus_titles.csv' AS disney with disney where disney.director is not null AND disney.cast is not null AND disney.country is not null
+      <br> MERGE (s:disney {ID:disney.show_id})
+      <br> MERGE (t:disney {Type:disney.type})
+      <br> MERGE (l:disney {Title:disney.title})
+      <br> MERGE (d:disney {Director:disney.director})
+      <br> MERGE (c:disney {Cast:disney.cast})
+      <br> MERGE (u:disney {Country:disney.country})
+      <br> MERGE (e:disney {Year:disney.release_year})
+      <br> MERGE (r:disney {Rating:disney.rating})
+      <br> MERGE (a:disney {Length:disney.duration})
+      <br> MERGE (i:disney {Genre:disney.listed_in})
+      <br> MERGE (p:disney {Summary:disney.description})
+      <br> MERGE (d) -[:TO {date:disney.release_year}]-> (l)
+      <br> MERGE (c) -[:TO {date:disney.release_year}]-> (l)
+      <br> MERGE (l) -[:TO ]-> (s)
+      <br> MERGE (p) -[:TO ]-> (l)
+      <br> MERGE (l) -[:TO {rating:disney.rating}]-> (t)
+      <br> MERGE (u) -[:TO {rating:disney.rating}]-> (t)
+      <br> MERGE (t) -[:TO ]-> (i)
+
+
     </p>
   </details>
   <details>
@@ -41,4 +62,5 @@
     </p>
   </details>
 </html>
+
 
