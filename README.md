@@ -13,6 +13,11 @@
       <ul>
         <li>MATCH (m:Movie) RETURN m</li>
       </ul>
+    <li>To delete all data and nodes...</li>
+    <ul>
+      <li>match (a) -[r] -> () delete a, r</li>
+      <li>match (a) delete a</li>
+    </ul>
   </ol>
 </html>
 
@@ -75,6 +80,23 @@
       <br> MERGE (l) -[:RATING {rating:disney.rating}]-> (t)
       <br> MERGE (u) -[:RATING {rating:disney.rating}]-> (t)
       <br> MERGE (t) -[:TO ]-> (i)
+      <br>
+      <br>
+      <br> LOAD CSV WITH HEADERS FROM 'file:///disney_plus_titles.csv' AS disney with disney where disney.director is not null AND disney.cast is not null AND disney.country is not null
+      <br> MERGE (s:ID {ID:disney.show_id})
+      <br> MERGE (t:INFO {Type:disney.type})
+      <br> MERGE (l:INFO {Title:disney.title})
+      <br> MERGE (d:CREDITS {Director:disney.director})
+      <br> MERGE (c:CREDITS {Cast:disney.cast})
+      <br> MERGE (u:LOCATION {Country:disney.country})
+      <br> MERGE (e:INFO {Year:disney.release_year})
+      <br> MERGE (r:INFO {Rating:disney.rating})
+      <br> MERGE (a:INFO {Length:disney.duration})
+      <br> MERGE (i:INFO {Genre:disney.listed_in})
+      <br> MERGE (p:INFO {Summary:disney.description})
+      <br> MERGE (d) -[:YEAR {date:disney.release_year}]-> (l) <- [:YEAR {date:disney.release_year} ]- (c)
+      <br> MERGE (l) -[:ID {ID:disney.show_id}]-> (s)
+      <br> MERGE (l) -[:INFO ]- (t) -[:INFO ]- (e) -[:INFO ]- (r) -[:INFO ]- (a) -[:INFO]- (i) -[:INFO]- (p) -[:LOCATION]- (u)
 
 
     </p>
@@ -86,5 +108,3 @@
     </p>
   </details>
 </html>
-
-
