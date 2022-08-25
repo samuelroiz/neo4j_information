@@ -120,8 +120,6 @@
       <br> MERGE (r) -[:rating ]-> (p) 
       <br> MERGE (a) -[:length ]-> (p) 
       <br> MERGE (p) -[:summary]-> (l) 
-
-
     </p>
   </details>
   <details>
