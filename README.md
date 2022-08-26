@@ -140,4 +140,26 @@
       <br> <a href="https://www.youtube.com/watch?v=iyjgOR7nBck">How to import json files into Neo4j</a>
     </p>
   </details>
+  <h4>XML Files</h4>
+  <details>
+    <summary>Website Links</summary>
+    <p>
+      <br> <a href="https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms762271(v=vs.85)?redirectedfrom=MSDN">XML files example</a>
+    </p>
+  </details>
+  <details>
+    <summary>Code Examples</summary>
+    <p>
+      <br> CALL apoc.import.xml("oscal_leveraging-example_ssp.xml",
+      <br> {relType:'NEXT_WORD', label:'XmlWord'})
+      <br> YIELD node
+      <br> RETURN node;
+      <br>
+      <br> 
+      <br> CALL apoc.import.xml("example.xml",{relType:'NEXT_WORD', label:'XmlWord'})
+      <br> YIELD node
+      <br> RETURN node;
+    </p>
+  </details>
+  
 </html>
