@@ -22,6 +22,11 @@
 </html>
 
 <html>
+  <h3>How to dump files</h3>
+  <details>
+    <summary>Useful information</summary>
+    <a href="https://www.youtube.com/watch?v=HPwPh5FUvAk">How to dump files</a>
+  </details>
   <h3>How to import files</h3>
   <h4>CSV Files</h4>
   <details>
@@ -126,6 +131,8 @@
     <summary>Youtube Links</summary>
     <p><br> <a href="https://www.youtube.com/watch?v=npOMyKnmgMI">Import CSV file in NEO4j by Gephi</a>
       <br> <a href="https://www.youtube.com/watch?v=J8vmqJrqd6w&t=309s">How to import CSV into Neo4j? | Neo4j Tutorial for Beginners | Let's have a look @ LOAD CSV | Part 3</a>
+      <br> <a href="https://www.youtube.com/watch?v=iyjgOR7nBck">How to import json files into Neo4j</a>
+      <br> <a href="https://www.youtube.com/watch?v=HPwPh5FUvAk">How to dump files</a>
     </p>
   </details>
 </html>
