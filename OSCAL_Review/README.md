@@ -4,4 +4,7 @@
   <p>Code:
   <ul><li>CALL apoc.help("")</li></ul>
   </p>
+  <p>Steps to use and unload APOC
+  </p>
+  <ol>Place JSON file in the import folder...<i>Example "C:\Users\sroiz\OneDrive\Desktop\Neo4j\relate-data\dbmss\dbms-91ae3d10-8063-4037-8000-7125ec599320\import"</i> </ol>
 </html>
