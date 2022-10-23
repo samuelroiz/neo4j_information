@@ -16,25 +16,23 @@
   <li>Check the key(s) in the JSON by using this code: <br> call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
 unwind value.items as q
 return keys(q)</li>
-  <li>To return a table with selected key(s) from URL by using this code: <br> call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
-unwind value.items as q
+  <li>To return a table with selected key(s) from URL by using this code: <br> call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value <br>
+unwind value.items as q <br>
 return keys(q)</li>
   </ol>
-  <li>call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
-unwind value.items as q
-merge(question:Question {id:q.question_id}) ON CREATE SET question.title = q.title, question.answered = q.is_answered
-merge(u:User {name:q.owner.display_name})
-merge (u)-[:ANSWERED]->(question)
-foreach (t in q.tags | MERGE (tag:Tag {name:t}) MERGE (question)-[:TAGGED]->(t))</li>
+  <li>call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value <br>
+unwind value.items as q <br>
+merge(question:Question {id:q.question_id}) ON CREATE SET question.title = q.title, question.answered = q.is_answered <br>
+merge(u:User {name:q.owner.display_name}) <br>
+merge (u)-[:ANSWERED]->(question) <br>
+foreach (t in q.tags | MERGE (tag:Tag {name:t}) MERGE (question)-[:TAGGED]->(t))</li> <br>
   <h4>Random examples by using URL</h4>
   <li>How to only choose the first 1 - 10 pages: <br> UNWIND range(1,10) as page
 WITH "https://api.stackexchange.com/2.2/questions?page="+page+"&pagesize=100&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf" AS url
-CALL apoc.load.json(url) YIELD value
-
-UNWIND value.items AS q
-
-MERGE (question:Question {id:q.question_id})
-  ON CREATE SET question.title = q.title, question.share_link = q.share_link, question.favorite_count = q.favorite_count, question.creation_date = q.creation_date</li>
+CALL apoc.load.json(url) YIELD value <br>
+UNWIND value.items AS q <br>
+MERGE (question:Question {id:q.question_id}) <br>
+ON CREATE SET question.title = q.title, question.share_link = q.share_link, question.favorite_count = q.favorite_count, question.creation_date = q.creation_date <br></li>
 </html>
 
 call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
