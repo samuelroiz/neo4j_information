@@ -12,4 +12,7 @@
   <ol>
   <li>Run this code in Neo4j query: call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=100&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf")</li>
   </ol>
+  <li>Check the key(s) in the JSON by using this code: call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
+unwind value.items as q
+return keys(q)</li>
 </html>
