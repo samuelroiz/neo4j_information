@@ -33,6 +33,11 @@ CALL apoc.load.json(url) YIELD value <br>
 UNWIND value.items AS q <br>
 MERGE (question:Question {id:q.question_id}) <br>
 ON CREATE SET question.title = q.title, question.share_link = q.share_link, question.favorite_count = q.favorite_count, question.creation_date = q.creation_date <br></li>
+<li>
+  call apoc.load.json("https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/baselines/rev4/json/FedRAMP_rev4_MODERATE-baseline_profile.json") <br> yield value <br>
+unwind value.profile as q return keys(q) <br>
+</li>
+
 </html>
 
 call apoc.load.json("https://api.stackexchange.com/2.2/questions?pagesize=5&order=desc&sort=creation&tagged=neo4j&site=stackoverflow&filter=!5-i6Zw8Y)4W7vpy91PMYsKM-k9yzEsSC1_Uxlf") yield value
